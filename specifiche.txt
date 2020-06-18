@@ -1,0 +1,98 @@
+		USER
+
+* Signup
+Un nuovo User vuole registrarsi al Sistema. 
+Il nuovo User inserisce i campi username, password, nome e cognome. 
+Il Sistema verifica la correttezza dei dati immessi: se corretti, li salva e mostra una pagina di conferma registrazione.
+
+* Autenticazione
+Uno User registrato vuole accedere al Sistema. 
+Lo User inserisce username e password. Il Sistema verifica la correttezza dei dati immessi: 
+se corretti, autentica lo User e mostra il suo profilo.
+
+* Visualizzare il mio profilo
+Uno User autenticato vuole accedere al suo profilo.
+Il Sistema mostra i dati relativi allo User.
+
+* Aggiornare il mio profilo
+Uno User autenticato vuole aggiornare il suo profilo.
+Il Sistema mostra i campi contenenti i dati dello User. Lo User modifica i dati interessati e conferma 
+le modifiche. Il Sistema verifica la correttezza dei dati modificati: se corretti, li salva e mostra i 
+dati dello User.
+
+		PROJECT
+
+* Creare un nuovo progetto
+Uno User autenticato vuole creare un nuovo Project.
+Lo User inserisce i dati relativi al nuovo Project. Il Sistema verifica la correttezza dei dati immessi: 
+se corretti, li salva e mostra la lista dei progetti dello User.
+
+* Visualizzare i miei progetti
+Uno User autenticato vuole visualizzare i suoi Project.
+Il Sistema mostra una listea di Project di cui e' proprietario.
+
+* Visualizzare i progetti condivisi con me
+Uno User autenticato vuole visualizzare i Project che uno o più User hanno condiviso con lui.
+Il Sistema mostra una lista di tutti i Project di cui ha visibilità.
+
+* Aggiornare i dati di un mio progetto
+Uno User autenticato vuole aggiornare i dati di un suo Project.
+Il Sistema mostra una lista dei Project di cui lo User è proprietario. Lo User sceglie il Project che vuole 
+aggiornare. Il Sistema mostra i campi contenenti i dati del Project selezionato. Lo User modifica i dati 
+interessati e conferma le modifiche. 
+Il Sistema verifica la correttezza dei dati modificati: se corretti, li salva e mostra i dati del Project.
+
+* Cancellare un mio progetto
+Uno User autenticato vuole cancellare un suo Project.
+Il Sistema mostra una lista dei Project di cui lo User è proprietario. Lo User seleziona il Project e conferma
+la sua cancellazione. Il Sistema mostra la lista dei progetti dello User.
+
+* Condividere un mio progetto con un altro utente
+Uno User autenticato vuole condividere un suo Project con un altro User. 
+Lo User proprietario seleziona lo User di interesse e conferma l’inserimento. Il Sistema 
+verifica la correttezza dell'inserimento e mostra una lista di tutti gli User che hanno visibilità 
+sul Project.
+
+* Aggiungere un tag ad un mio progetto
+Uno User autenticato vuole aggiungere un Tag ad un suo Project.
+Lo User seleziona un Project ed inserisce i dati relativi al Tag. Il Sistema verifica la correttezza dei campi e
+mostra una lista dei Tag associati al Project.
+
+
+		TASK
+
+* Aggiungere un nuovo task a un mio progetto
+Uno User autenticato vuole aggiungere un Task ad un suo Project.
+Il Sistema mostra una lista dei Project di cui lo User è proprietario. Lo User seleziona un Project, poi inserisce
+i dati relativi al nuovo Task. 
+Il Sistema verifica la correttezza dei dati e mostra una lista dei Task del Project.
+
+* Aggiornare un task di un mio progetto
+Uno User autenticato vuole aggiornare un Task di un suo Project.
+Il Sistema mostra una lista dei Project di cui lo User è proprietario. Lo User seleziona un Project. Il Sistema
+mostra una lista dei Task associati al Project selezionato. Lo User seleziona un Task, poi modifica i dati e li conferma.
+Il Sistema verifica i dati immessi e mostra i dati del Task.
+
+* Cancellare un task da un mio progetto
+Uno User autenticato vuole cancellare un Task di un suo Project.
+Il Sistema mostra una lista dei Project di cui lo User è proprietario. Lo User seleziona un Project. Il Sistema
+mostra una lista dei Task associati al Project selezionato. Lo User seleziona un Task e conferma la sua cancellazione.
+Il Sistema mostra la lista dei Task del Project.
+
+* Assegnare un task di un mio progetto ad un utente che ha visibilità del mio progetto
+Uno User autenticato vuole assegnare un Task di un suo Project ad uno User che ha visibilità del Project.
+Il Sistema mostra una lista dei Project di cui lo User è proprietario. Lo User seleziona un Project. Il Sistema
+mostra una lista dei Task associati al Project selezionato e una lista degli User che hanno visibilità del project. 
+Lo User seleziona un Task, uno User e conferma la selezione. Il Sistema salva l'assegnazione e mostra i dati del Task.
+
+* Aggiungere un tag ad un task di un mio progetto
+Uno User autenticato vuole aggiungere un Tag ad un Task di un suo Project.
+Il Sistema mostra una lista dei Project di cui lo User è proprietario. Lo User seleziona un Project. Il Sistema
+mostra una lista dei Task associati al Project selezionato e una lista dei Tag esistenti. Lo User seleziona un Task e 
+un Tag e conferma la selezione. Il Sistema salva l'assegnazione e mostra i dati del Task.
+
+* Aggiungere un commento ad un task di un progetto su cui ho vibilità
+Uno User autenticato vuole aggiungere un Commento ad un Task di un Project su cui ha visibilità.
+Il Sistema mostra una lista dei Project di cui lo User ha visibilità. Lo User seleziona un Project. Il Sistema
+mostra una lista dei Task associati al Project selezionato. Lo User seleziona un Task, poi inserisce la descrizione
+del Commento e conferma l'inserimento. Il Sistema salva l'inserimento e mostra una lista dei Commenti aggiunti al Task.
