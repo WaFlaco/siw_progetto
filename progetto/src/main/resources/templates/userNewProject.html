@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="it"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Crea Progetto</title>
+</head>
+<body>
+	<h1 align="center">Crea un nuovo Progetto</h1>
+	<!-- th:object ->  l'oggetto che si gestisce nella form e' 'projectForm'; utilizza "*{}" per non ripeterlo nella chiamata degli attributi -->
+	<form id="projectForm" th:action="@{/user/projects/owner/new}" th:object="${projectForm}" method="POST">
+		<table>
+		<tr>
+			<td>Nome</td>
+			<td><input id="nameProject" placeholder="Nome" required
+					   th:field="*{name}" /></td>
+			<td th:if="${#fields.hasErrors('name')}" 
+				th:errors="*{name}" 
+				th:style="'color:red'"></td>
+		</tr>
+		<tr>
+			<td><input type="submit" value="Crea Progetto"/></td>
+		</tr>
+		</table>
+	</form>
+</body>
+</html>

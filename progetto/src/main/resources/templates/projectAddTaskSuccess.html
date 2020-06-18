@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="it"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Aggiungi Task</title>
+</head>
+<body>
+	<h1 th:text="'Il Task ' + ${task.name} + ' e stato aggiunto al Progetto' + ${project.name} + '!'"></h1>
+	<h4>Vuoi assegnare ora il Task ad un Membro del Progetto?</h4>
+	<div>
+	<form th:action="@{/tasks/{taskId}/assign/member(taskId=${task.id})}"
+			method="get">
+		<button>Assegna ad un Membro</button>
+	</form>
+	</div>
+	<div>
+	<form th:action="@{/user/projects/owner/{projectId}(projectId=${project.id})}" method="get">
+		<button>Torna al Progetto</button>
+	</form>
+	</div>
+</body>
+</html>

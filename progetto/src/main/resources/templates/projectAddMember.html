@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="it"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Aggiungi Membro</title>
+</head>
+<body>
+	<h1 th:text="'Aggiungi Membro al Progetto' + ${project.name}"></h1>
+	
+	<form id="userId" th:action="@{/user/projects/owner/{projectId}/add/member(projectId=${project.id})}" 
+		  method="post">
+		<table>
+			<thead>
+				<tr><th>Nome</th><th>Cognome</th></tr>
+			</thead>
+			<tbody>
+			<tr th:each="user : ${users}">
+					<td th:text="${user.firstName}"></td>
+					<td th:text="${user.lastName}"></td>
+					<td><input type="radio" id="radio" value="${user.id}" /></td>
+			</tr>
+			</tbody>
+		</table>
+		<button type="submit">Aggiungi</button>
+	</form>
+</body>
+</html>

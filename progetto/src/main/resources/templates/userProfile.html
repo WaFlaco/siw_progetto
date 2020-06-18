@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="it"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Profilo</title>
+</head>
+<body>
+	<h1 align="center">Profilo Utente</h1>
+	<table>
+		<tr><td>Username</td><td>-</td><td th:text="${credential.username}"></td></tr>
+		<tr><td>Nome</td><td>-</td><td th:text="${loggedUser.firstName}"></td></tr>
+		<tr><td>Cognome</td><td>-</td><td th:text="${loggedUser.lastName}"></td></tr>
+		<tr><td>Data Creazione Account</td><td>-</td><td th:text="${loggedUser.creationTimestamp}"></td></tr>
+		<tr><td><a href = "/user/profile/update"><button>Aggiorna Profilo</button></a></td>
+		</tr>
+	</table>
+</body>
+</html>

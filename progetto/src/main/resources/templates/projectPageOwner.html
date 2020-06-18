@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="it"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<title th:text="${project.name}"></title>
+	<script>
+		function confirmFun() {
+			confirm("Sicuro di voler cancellare il progetto?");
+		}
+	</script>
+</head>
+<body>
+	<h1 align="center" th:text="${project.name}"></h1>
+	<h2>Membri</h2>
+	<div th:if="${members.size() == 0}">
+		<h4>Non ci sono membri</h4>
+	</div>
+	<div th:if="${members.size() > 0}">
+		<ul>
+			<li th:each="member: ${members}">
+			<div th:text="${member.firstName} + ' ' + ${member.lastName}"></div>
+			</li>
+		</ul>
+	</div>
+	<form th:action="@{/user/projects/owner/{projectId}/add/member(projectId=${project.id})}" method="get">
+		<button>Aggiungi un membro al Progetto</button>
+	</form>
+	<h2>Task</h2>
+	<div th:if="${tasks.size() == 0}">
+		<h4>Non ci sono Task</h4>
+	</div>
+	<div th:if="${tasks.size() > 0}">
+		<ul>
+			<li th:each="task: ${tasks}">
+			<a href="/tasks/{taskId}(taskId=${task.id})" th:text="${task.name}"></a>
+				<div th:text="${task.description}"></div>
+			</li>
+		</ul>
+	</div>
+	<div>
+	<form th:action="@{/user/projects/owner/{projectId}/add/task(projectId=${project.id})}" method="get">
+		<button>Aggiungi un Task al Progetto</button>
+	</form>
+	</div>
+	<br><br>
+	<div align="center">
+	<form th:action="@{/user/projects/owner/{projectId}/delete(projectId=${project.id})}" method="post">
+		<button onclick="confirmFun()">Elimina il Progetto</button>
+	</form>
+	</div>
+</body>
+</html>

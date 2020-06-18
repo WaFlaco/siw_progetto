@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="it"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Tasks</title>
+</head>
+<body>
+	<h1 align="center">I tuoi Task</h1>
+	<div th:if="${userTasks.size() == 0}">Non hai Task</div>
+	<div th:if="${userTasks.size() > 0}">
+	<table>
+		<thead>
+		<tr><th>Nome</th><th>Descrizione</th><th>Data di creazione</th></tr>
+		</thead>
+		<tbody>
+		<tr th:each="task : ${userTasks}">
+			<td><a th:href="/tasks/{taskId}(taskId=${task.id})" th:text="${task.name}"></a></td>
+			<td th:text="${task.description}"></td>
+			<td th:text="${task.creationTimestamp}"></td>
+		</tr>
+		</tbody>
+	</table>
+	</div>
+</body>
+</html>

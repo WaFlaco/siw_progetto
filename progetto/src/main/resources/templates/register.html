@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="it"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Log In</title>
+	<script>
+		function maskUnMask() {
+  			var x = document.getElementById("pwd");
+  			if (x.type === "password") {
+    			x.type = "text";
+  			} else {
+    			x.type = "password";
+  			}
+		}
+	</script>
+</head>
+<body>
+	<h1 align="center">Accedi</h1>
+	<form id="userForm" th:action="@{/register/user}" method="post">
+	<table>
+	<tr>
+		<td>User Name</td>
+		<td><input type="text" placeholder="Username" required
+				th:field="${credentialForm.username}" /></td>
+		<td th:if="${#fields.hasErrors('credentialForm.username')}"
+			th:errors="${credentialForm.username}"
+			th:style="'color:red'"></td>
+	</tr>
+	<tr>
+		<td>Password</td>
+		<td><input id="pwd" type="password" placeholder="Password" required
+				th:field="${credentialForm.password}" /></td>
+				
+		<td><input type="checkbox" onclick="maskUnMask()" />Mostra</td>
+		
+		<td th:if="${#fields.hasErrors('credentialForm.password')}"
+			th:errors="${credentialForm.password}"
+			th:style="'color:red'"></td>
+	</tr>
+	<tr>
+		<td>Nome</td>
+		<td><input type="text" placeholder="Nome" required
+				th:field="${userForm.firstName}" /></td>
+		<td th:if="${#fields.hasErrors('userForm.firstName')}"
+			th:errors="${userForm.firstName}"
+			th:style="'color:red'"></td>
+	</tr>
+	<tr>
+		<td>Cognome</td>
+		<td><input type="text" placeholder="Cognome" required
+				th:field="${userForm.lastName}" /></td>
+		<td th:if="${#fields.hasErrors('userForm.lastName')}"
+			th:errors="${userForm.lastName}"
+			th:style="'color:red'"></td>
+	</tr>
+	<tr>
+		<td><input type="submit" value="Registrati" /></td>
+	</tr>
+	</table>
+	</form>
+
+</body>
+</html>

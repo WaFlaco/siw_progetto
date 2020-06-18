@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="it"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Tasks</title>
+</head>
+<body>
+	<h1 align="center">I tuoi Commenti</h1>
+	<div th:if="${userComments.size() == 0}">Non hai Commenti</div>
+	<div th:if="${userComments.size() > 0}">
+	<table>
+		<thead>
+		<tr><th>Descrizione</th><th>Data di creazione</th><th>Task di riferimento</th></tr>
+		</thead>
+		<tbody>
+		<tr th:each="comment : ${userComments}">
+			<td th:text="${comment.description}"></td>
+			<td th:text="${comment.creationTimestamp}"></td>
+			<td th:text="${comment.task}"></td>
+		</tr>
+		</tbody>
+	</table>
+	</div>
+</body>
+</html>

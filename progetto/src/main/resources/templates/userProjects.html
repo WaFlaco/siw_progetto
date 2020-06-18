@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="it"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Progetti</title>
+</head>
+<body>
+	<h1 align="center">I tuoi Progetti</h1>
+	<div th:if="${ownedProjects.size() == 0}">Non hai Progetti</div>
+	<div th:if="${ownedProjects.size() > 0}">
+	<table>
+		<thead>
+		<tr><th>Nome</th><th>Data di creazione</th></tr>
+		</thead>
+		<tbody>
+		<tr th:each="oproject : ${ownedProjects}">
+			<td><a th:href="'/user/projects/owner/' + ${oproject.id}" th:text="${oproject.name}"></a></td>
+			<td th:text="${oproject.creationTimestamp}"></td>
+		</tr>
+		</tbody>
+	</table>
+	</div>
+	<br>
+	<div><a href="/user/projects/owner/new"><button>Crea un nuovo Progetto</button></a></div>
+	<h1 align="center">I Progetti di cui sei Membro</h1>
+	<div th:if="${visibleProjects.size() == 0}">Non hai Progetti visibili</div>
+	<div th:if="${visibleProjects.size() > 0}">
+	<table>
+		<thead>
+		<tr><th>Nome</th><th>Data di creazione</th></tr>
+		</thead>
+		<tbody>
+		<tr th:each="vproject : ${visibleProjects}">
+			<td><a th:href="'/user/projects/visible/' + ${vproject.id}" th:text="${vproject.name}"></a></td>
+			<td th:text="${vproject.creationTimestamp}"></td>
+		</tr>
+		</tbody>
+	</table>
+	</div>
+</body>
+</html>

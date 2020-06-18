@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="it"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Utenti</title>
+	<script>
+		function confirmFun() {
+			confirm("Sicuro di voler cancellare il progetto?");
+		}
+	</script>
+</head>
+<body>
+	<h1 align="center">Lista di tutti gli Utenti</h1>
+	<div>
+	<table class="table table-hove">
+		<thead>
+		<tr>
+			<th>Username</th>
+			<th>Nome</th>
+			<th>Cognome</th>
+			<th>Elimina</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr th:each="credential: ${credentials}">
+			<td th:text="${credential.username}"></td>
+	<!-- credential.user. e' accettabile perche' abbiamo preso lo user in modalita' EAGER -->
+			<td th:text="${credential.user.firstName}"></td>
+			<td th:text="${credential.user.lastName}"></td>
+			<td>
+				<form method="POST" th:action="@{/admin/users/{username}/delete(usernmane=${credentials.username})}">
+					<button onclick="confirmFun()">Elimina Utente</button>
+				</form>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+	</div>
+	
+
+</body>
+</html>

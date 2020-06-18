@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="it"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<title th:text="'Task ' + ${task.name}"></title>
+	<script>
+		function confirmFun() {
+			confirm("Sicuro di voler cancellare il task?");
+		}
+	</script>
+</head>
+<body>
+	<h1 align="center" th:text="'Task ' + ${task.name}"></h1>
+	<h2 th:text="'Progetto di appartenenza: ' + ${project.name}"></h2>
+	<div th:if="${userAssigned==null}"><h3>Nessun Membro assegnato a questo Task</h3></div>
+	<div th:if="${userAssigned!=null}"><h3 th:text="'Task assegnato a: ' + ${owner.firstName} + ' ' + ${owner.lastName}"></h3></div>
+	<h4 th:text="'Descrizione: ' + ${task.description}"></h4>
+	<h6>Commenti</h6>
+	<div th:if="${comments.isEmpty()}"><h3>Nessun Membro assegnato a questo Task</h3></div>
+	<table>
+		<tr th:each="comment : ${comments}">
+			<td th:text="${comment.description}"></td>
+		</tr>
+	</table>
+	<table>
+		<tr>	
+			<td>
+				<form th:action="@{/tasks/{taskId}/add/comment(taskId=${task.id})}" method="get">
+				<button>Aggiungi un Commento</button>
+				</form>
+			</td>
+			<td>
+				<form th:action="@{/tasks/{taskId}/update(taskId=${task.id})}" method="get">
+				<button>Aggiorna il Task</button>
+				</form>
+			</td>
+			<td>
+				<form th:action="@{/tasks/{taskId}/assign/member(taskId=${task.id})}" method="get">
+				<button>Assegna/Riassegna il Task</button>
+				</form>
+			</td>
+			<td>
+				<form th:action="@{/user/projects/owner/{projectId}/tasks/{taskId}/delete(projectId=${project.id}, taskId=${task.id})}" method="post">
+				<button onclick="confirmFun()">Elimina il Task</button>
+				</form>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

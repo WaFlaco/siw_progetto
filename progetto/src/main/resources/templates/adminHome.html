@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="it"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>HomePage</title>
+</head>
+<body>
+	<h1 align="center" th:text="'Benvenuto, ' + ${user.firstName} + '!'"></h1>
+	<h4><a href="/admin/users">Lista di tutti gli Utenti</a></h4>
+	
+	
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="it"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Assegna Task</title>
+</head>
+<body>
+	<h1 th:text="'Assegna il Task ' + ${task.name} + ' del Progetto ' + ${project.name}"></h1>
+	
+	<form id="memberId" th:action="@{/tasks/{taskId}/assign/member(taskId=${task.id})}" 
+		  method="post">
+		<table>
+			<thead>
+				<tr><th>Nome</th><th>Cognome</th></tr>
+			</thead>
+			<tbody>
+			<tr th:each="member : ${members}">
+					<td th:text="${member.firstName}"></td>
+					<td th:text="${member.lastName}"></td>
+					<td><input type="radio" id="radio" value="${member.id}" /></td>
+			</tr>
+			</tbody>
+		</table>
+		<button type="submit">Assegna</button>
+	</form>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="it"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>HomePage</title>
+</head>
+<body>
+	<h1 align="center" th:text="'Benvenuto, ' + ${user.firstName} + '!'"></h1>
+	<h4><a href="/user/profile">Dati Personali</a></h4>
+	<h4><a href="/user/projects">Progetti</a></h4>
+	<h4><a href="/user/tasks">I tuoi Task</a></h4>
+	<h4><a href="/user/comments">I tuoi Commenti</a></h4>
+	<h4><a href="/logout">Logout</a></h4>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="it"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Aggiorna Task</title>
+</head>
+<body>
+	<h1 align="center" th:text="'Aggiorna il Task ' + ${task.name}"></h1>
+	<form id="updateF" th:action="@{/tasks/{taskId}/update(taskId=${task.id})}" method="post">
+	<table>
+	<tr>
+		<td>Nome</td>
+		<td><input type="text" placeholder="${task.name}" 
+				th:field="${taskForm.name}" /></td>
+		<td th:if="${#fields.hasErrors('taskForm.name')}"
+			th:errors="${taskForm.name}"
+			th:style="'color:red'"></td>
+	</tr>
+	<tr>
+		<td>Descrizione</td>
+		<td><input type="text" placeholder="${task.description}" 
+				th:field="${taskForm.description}" /></td>
+		<td th:if="${#fields.hasErrors('taskForm.description')}"
+			th:errors="${taskForm.description}"
+			th:style="'color:red'"></td>
+	</tr>
+	<tr>
+		<td><input type="submit" value="Aggiorna" /></td>
+	</tr>
+	</table>
+	</form>
+</body>
+</html>

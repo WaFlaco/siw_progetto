@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="it"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<title th:text="${project.name}"></title>
+</head>
+<body>
+	<h1 align="center" th:text="${project.name}"></h1>
+	<h2>Membri</h2>
+	<div th:if="${members.size() < 1}">
+		<h4>Non ci sono membri</h4>
+	</div>
+	<div th:if="${members.size() > 0}">
+		<ul>
+			<li th:each="member: ${members}">
+			<div th:text="${member.firstName} + ' ' + ${member.lastName}"></div>
+			</li>
+		</ul>
+	</div>
+	<h2>Task</h2>
+	<div th:if="${project.projectTasks.size() < 1}">
+		<h4>Non ci sono Task</h4>
+	</div>
+	<div th:if="${project.projectTasks.size() > 0}">
+		<ul>
+			<li th:each="task: ${project.projectTasks}">
+			<div th:text="${task.name} + ': ' + ${task.description}"></div>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>
